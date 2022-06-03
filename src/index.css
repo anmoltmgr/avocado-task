@@ -1,23 +1,21 @@
-*,
-::after,
-::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "poppins", sans-serif;
 }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: var(--clr-grey-10);
-  color: var(--clr-grey-1);
-  line-height: 1.5;
-  font-size: 0.875rem;
+body{
+  display:flex;
+  height: 100vh;
+  justify-content: center;
+  background-color: whitesmoke;
 }
 label{
   text-align: right;
   width:17%;  
   padding-right: 1.4rem;
-  font-size: 1.01rem;
+  font-size: 0.9rem; 
+  /* font-stretch: 85%; */
   
 }
 label::after{
@@ -26,26 +24,26 @@ label::after{
 }
 select{
   display: block;
-  width:85%;
+  width:43%;
   height:2rem;
   padding-left: 1rem;
   border-radius: 5px;
-  border-style: outset;
-  border-width: 1px;
+  border-style: solid;
+  border-color: whitesmoke;
+  border-width: 2px;
+  height: 2.3rem;
+  
 }
-
-option[value="hello"][disabled] {
- color:grey;
-}
-
 input[type=text]{
   display: block;
-  width:85%;
+  width:43%;
   height:2rem;
   text-indent:1rem;
   border-radius: 5px;
-  border-style: outset;
-  border-width: 1px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: whitesmoke;
+  height: 2.3rem;
   
 }
 ::placeholder{
@@ -54,10 +52,8 @@ input[type=text]{
 }
 span{
   display: flex;
-  padding:1rem 0;
-  align-items: center;
- 
-  
+  padding:0.9rem 0;
+  align-items: center; 
 }
 
 
@@ -66,35 +62,62 @@ span{
 /* Classnames*/
 
 .section-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 35rem;
-  margin-top: 8rem;
+  width: 75vw;
+  
+  background: white;
+  margin-top: 6.3rem;
+  
   border-style: solid;
   border-color: rgb(223, 224, 225);
   border-width: 1px;
   border-radius: 5px;
- 
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
  }
  .line{
    border-bottom: solid;
-   border-width: 1px;
+   border-width: 1.5px;
    border-color: rgb(223, 224, 225);
+   margin-right: 0.5rem;
+ }
+ .line p{
+   padding:1rem;
+   font-weight: bold;
+   font-size: 0.9rem;
+   font-stretch: 90%;
+  
+ }
+ .left-line{
+   border-left: solid;
+   border-width: 3.5px;
+   border-color: whitesmoke; 
+   margin-left:0.5rem;
+   margin-top: 0.5rem;
+   margin-bottom: 0.5rem;
  }
 .form-layout{
   display: flex;
   flex-direction: column;
+  padding-left: 6.5rem;
 }
-.image-bar{
-  align-items:center;
-  
-}
+
 .status-bar{
   justify-content: left;
 }
+.status-bar input{
+  height: 1rem;
+  width: 1rem;
+}
+.image-bar{
+  align-items:center; 
+}
+.image-bar input{
+  padding-left: 1rem;
+}
 .btn-container{
-  justify-content: center;
+  
   margin-top: -1rem;
+  margin-left: 16%;
+  
  
 }
 .btn-table{
@@ -103,7 +126,11 @@ span{
   padding: 0.5rem;
   color:white;
   border-radius: 5px;
-  margin: 0.5rem;
+  margin: 0.3rem;
+  height: 2.3rem;
+  font-size: 1.05rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
 }
 .btn-cancel{
 
@@ -112,5 +139,9 @@ span{
   padding: 0.5rem;
   color:white;
   border-radius: 5px;
-  margin: 0.5rem;
+  margin: 0.3rem;
+  height: 2.3rem;
+  font-size: 1.05rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
 }
