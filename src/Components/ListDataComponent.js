@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import FormComponent from "./FormComponent";
+
 const ListComponent = (props) => {
-  const { deleteData } = props;
-  console.log("props:", props);
-  const [readOnly, setReadOnly] = useState(true);
+  const { deleteData, data } = props;
+  // console.log("props:", props.data);
+
+  const [update, setUpdate] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(null);
+  const [currentElement, setCurrentElement] = useState(null);
+  const [value, setValue] = useState(null);
+  const handleEdit = (element) => {
+    setUpdate(true);
+    setCurrentElement(element);
+    console.log("curent element", currentElement);
+  };
+  const handleSetUpdate = () => {
+    setUpdate(false);
+  };
   return (
     <section className="section-center">
       <div className="App">
@@ -22,24 +35,12 @@ const ListComponent = (props) => {
 
           {props.data.map((element, index) => (
             <tr>
-              <td>
-                <input value={index + 1} readOnly={readOnly} />
-              </td>
-              <td>
-                <input value={element.name} readOnly={readOnly} />
-              </td>
-              <td>
-                <input value={element.layout} readOnly={readOnly} />
-              </td>
-              <td>
-                <input value={element.resolution} readOnly={readOnly} />
-              </td>
-              <td>
-                <input value={element.active_status} readOnly={readOnly} />{" "}
-              </td>
-              <td>
-                <input value={element.image_link} readOnly={readOnly} />
-              </td>
+              <td>{index + 1}</td>
+              <td>{element.name}</td>
+              <td>{element.layout}</td>
+              <td>{element.resolution}</td>
+              <td>{element.active_status ? "true" : "false"}</td>
+              <td>{element.image_link}</td>
               <td>
                 <AiFillDelete
                   onClick={() => {
@@ -49,18 +50,30 @@ const ListComponent = (props) => {
                 />
               </td>
               <td>
-                <AiFillEdit
+                <button
                   onClick={() => {
-                    console.log("inside edit click", readOnly);
-                    setReadOnly(!readOnly);
-                    console.log("inside edit click", readOnly);
+                    handleEdit(element);
                   }}
-                />
+                >
+                  Edit
+                </button>
               </td>
             </tr>
           ))}
         </table>
       </div>
+
+      {update && (
+        <main style={{ padding: "1rem 0" }}>
+          <h2>Form</h2>
+          <FormComponent
+            type="Update Entry"
+            data={currentElement}
+            tableName="Update Table"
+            handleSetUpdate={handleSetUpdate}
+          />
+        </main>
+      )}
     </section>
   );
 };
